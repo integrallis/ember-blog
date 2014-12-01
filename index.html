@@ -31,6 +31,15 @@
     </table>
 
     <div>{{#link-to 'index'}}Dashboard{{/link-to}}</div>
+    <div>{{#link-to 'BlogPosts.new'}}Create a new post{{/link-to}}</div>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="BlogPosts/new">
+    <h1>New Post</h1>
+
+    <div>{{#link-to 'BlogPosts.index'}}Cancel{{/link-to}}</div>
   </script>
 
   <!-- JAVASCRIPTS -->
