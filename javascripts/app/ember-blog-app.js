@@ -118,6 +118,26 @@ EmberBlog.CommentsNewController = Ember.ObjectController.extend({
   }
 });
 
+// Custom View
+EmberBlog.ModalView = Em.View.extend({
+  tagName: 'form',
+  elementId: 'modal-form',
+  classNames: 'modal fade in'.w(),
+  didInsertElement: function() {
+    this.$().modal({
+      show: true,
+      backdrop: 'static'
+    });
+  },
+  willDestroyElement: function() {
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+    this.$().modal('hide');
+  }
+});
+
+EmberBlog.BlogPostsNewView = EmberBlog.ModalView
+
 // Add some fixtures
 EmberBlog.BlogPost.FIXTURES = [
   { id: '1', title: 'RWX Rocks!', body: "We're learning Ember", comments: ['1', '5'] },
